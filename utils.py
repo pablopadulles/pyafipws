@@ -59,10 +59,11 @@ except ImportError:
     # python3 workaround to read config files not in utf8
     from configparser import ConfigParser as SafeConfigParser
     import codecs
+    if not 'trytond' in sys.modules:
 
-    SafeConfigParser.read = lambda self, filename: self.read_file(
-        codecs.open(filename, "r", "latin1")
-    )
+        SafeConfigParser.read = lambda self, filename: self.read_file(
+            codecs.open(filename, "r", "latin1")
+        )
 
 from pysimplesoap.client import (
     SimpleXMLElement,
