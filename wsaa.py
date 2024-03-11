@@ -112,7 +112,7 @@ def create_tra(service=SERVICE, ttl=2400):
 def sign_tra_new(tra, cert=CERT, privatekey=PRIVATEKEY, passphrase=""):
     "Sign Digital transactions with cryptography versions >= 39 in python 3"
     # Leer privatekey y cert
-    if not privatekey.startswith(b"-----BEGIN RSA PRIVATE KEY-----"):
+    if not privatekey.startswith(b"-----BEGIN PRIVATE KEY-----"):
         privatekey = open(privatekey).read()
         if isinstance(privatekey, str):
             privatekey = privatekey.encode("utf-8")
@@ -155,7 +155,7 @@ def sign_tra_old(tra, cert=CERT, privatekey=PRIVATEKEY, passphrase=""):
     "Legacy method for signing python 2.7 digital transactions on python 2.7"
 
     # Leer privatekey y cert
-    if not privatekey.startswith(b"-----BEGIN RSA PRIVATE KEY-----"):
+    if not privatekey.startswith(b"-----BEGIN PRIVATE KEY-----"):
         privatekey = open(privatekey).read()
         if isinstance(privatekey, str):
             privatekey = privatekey.encode("utf-8")
