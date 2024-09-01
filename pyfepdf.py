@@ -1059,7 +1059,7 @@ class FEPDF(object):
             if (
                 fact.get("obs_generales")
                 and not f.has_key("obs")
-                and not f.has_key("ObservacionesGenerales1")
+                and not f.has_("ObservacionesGenerales1")
             ):
                 obs = "\n<U>Observaciones:</U>\n\n" + fact["obs_generales"]
                 # limpiar texto (campos dbf) y reemplazar saltos de linea:
